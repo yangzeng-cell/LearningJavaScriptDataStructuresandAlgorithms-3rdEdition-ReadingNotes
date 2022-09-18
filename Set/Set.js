@@ -165,16 +165,18 @@ class Set1 {
 // const intersectionAB = setA.intersection(setB);
 // console.log(intersectionAB.values());
 
-const setA = new Set1();
-setA.add(1);
-setA.add(2);
-const setB = new Set1();
-setB.add(1);
-setB.add(2);
-setB.add(3);
-const setC = new Set1();
-setC.add(2);
-setC.add(3);
-setC.add(4);
-console.log(setA.isSubsetOf(setB));
-console.log(setA.isSubsetOf(setC));
+// const setA = new Set1();
+// setA.add(1);
+// setA.add(2);
+// const setB = new Set1();
+// setB.add(1);
+// setB.add(2);
+// setB.add(3);
+// const setC = new Set1();
+// setC.add(2);
+// setC.add(3);
+// setC.add(4);
+// console.log(setA.isSubsetOf(setB));
+// console.log(setA.isSubsetOf(setC));
+
+export default Set1;
