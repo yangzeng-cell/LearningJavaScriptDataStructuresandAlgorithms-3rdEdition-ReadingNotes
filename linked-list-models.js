@@ -6,6 +6,10 @@ export class Node {
   }
 }
 
+export class DoublyNode extends Node{
+  constructor()
+}
+
 export class valuePair {
   constructor(key, value) {
     this.key = key;

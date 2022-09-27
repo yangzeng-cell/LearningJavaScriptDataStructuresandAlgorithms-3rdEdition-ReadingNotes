@@ -30,7 +30,22 @@ export default class LinkedList {
 
   // 向链表的特定位置插入一个新元素
   insert(element, position) {
-    if(position<0&&)
+    if (position >= 0 && position <= this.count) {
+      const node = new Node(element);
+      if (position === 0) {
+        const current = this.head;
+        this.head = node;
+        node.next = current;
+      } else {
+        const previous = this.getElementAt(position - 1);
+        const current = previous.next;
+        previous.next = node;
+        node.next = current;
+      }
+      this.count++;
+      return true;
+    }
+    return false;
   }
 
   // 返回链表中特定位置的元素。如果链表中不存在这样的元素，则返回 undefined
@@ -49,10 +64,22 @@ export default class LinkedList {
   }
 
   // 从链表中移除一个元素
-  remove(element) {}
+  remove(element) {
+    const currentIndex = this.indexOf(element);
+    return this.removeAt(currentIndex);
+  }
 
   // 返回元素在链表中的索引。如果链表中没有该元素则返回-1
-  indexOf(element) {}
+  indexOf(element) {
+    let current = this.head;
+    for (let i = 0; i < this.count && current != null; i++) {
+      if (this.equalFn(element, current.element)) {
+        return i;
+      }
+      current = current.next;
+    }
+    return -1;
+  }
 
   // 从链表的特定位置移除一个元素
   removeAt(position) {
@@ -86,11 +113,27 @@ export default class LinkedList {
   }
 
   // 如果链表中不包含任何元素，返回 true，如果链表长度大于 0则返回 false
-  isEmpty() {}
+  isEmpty() {
+    return this.count === 0;
+  }
 
   // 返回链表包含的元素个数，与数组的 length 属性类似
-  size() {}
+  size() {
+    return this.count;
+  }
 
   // 返回表示整个链表的字符串。由于列表项使用了 Node 类，就需要重写继承自 JavaScript 对象默认的 toString 方法，让其只输出元素的值
-  toString() {}
+  toString() {
+    if (this.head === null) {
+      return "";
+    }
+    let objString = `${this.head.element}`;
+    let current = this.head.next;
+    for (let i = 1; i < this.count && current != null; i++) {
+      objString += `,${current.element}`;
+      current = current.next;
+    }
+
+    return objString;
+  }
 }
