@@ -6,8 +6,11 @@ export class Node {
   }
 }
 
-export class DoublyNode extends Node{
-  constructor()
+export class DoublyNode extends Node {
+  constructor(element, next, prev) {
+    super(element, next);
+    this.prev = prev;
+  }
 }
 
 export class valuePair {
