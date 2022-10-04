@@ -1,4 +1,4 @@
-import { valuePair } from "../linked-list-models.js";
+import { ValuePair } from "../linked-list-models.js";
 import { defaultToString } from "../util.js";
 
 class Dictionary {
@@ -13,7 +13,7 @@ class Dictionary {
    */
   set(key, value) {
     if (key != null && value != null) {
-      this.table[this.toStrFn(key)] = new valuePair(key, value);
+      this.table[this.toStrFn(key)] = new ValuePair(key, value);
       return true;
     }
     return false;

@@ -13,7 +13,7 @@ export class DoublyNode extends Node {
   }
 }
 
-export class valuePair {
+export class ValuePair {
   constructor(key, value) {
     this.key = key;
     this.value = value;

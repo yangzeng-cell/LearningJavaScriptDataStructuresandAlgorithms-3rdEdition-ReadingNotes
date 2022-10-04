@@ -16,7 +16,7 @@ export default class CircularLinkedList extends LinkedList {
           node.next = this.head;
         } else {
           this.head = node;
-          current = this.getElementAt(this.size() - 1);
+          current = this.getElementAt(this.size());
           current.next = this.head;
         }
       } else {
@@ -29,5 +29,31 @@ export default class CircularLinkedList extends LinkedList {
       return true;
     }
     return false;
+  }
+
+  removeAt(index) {
+    if (index >= 0 && index < this.size()) {
+      let current = this.head;
+      if (index === 0) {
+        if (this.size() === 1) {
+          this.head = null;
+        } else {
+          const removed = this.head;
+          current = this.getElementAt(this.size());
+          this.head = this.head.next;
+          current.next = this.head;
+          current = removed;
+        }
+      } else {
+        const previous = this.getElementAt(index - 1);
+        current = previous.next;
+        previous.next = current.next;
+      }
+
+      this.count--;
+      return current.element;
+    }
+
+    return undefined;
   }
 }
